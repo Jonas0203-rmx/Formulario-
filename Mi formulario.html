@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de datos</title>
+    <style>
+        body { font-family: arial;}
+        form { width:400px; margin:auto;}
+        input { width:100%; margin:8px 0; padding: 8px;}
+        .ok { border:2px solid greenyellow;}
+        .error { border:2px solid red;}
+    </style>
+</head>
+<body>
+    <form onsubmit="return validar()">
+        <h2> Registro</h2>
+
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        <input type="text" id="apellido" placeholder="Apellido" required>
+
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="email" id="email2" placeholder="Confirmar Email" required>
+
+        <input type="password" id="pass" placeholder="Contraseña (8+)" required>
+        <input type="password" id="pass2" placeholder="Confirmar Contraseña" required>
+
+        <input type="submit" value="Registrarse">    
+    </form>
+    
+    <script>
+        function validar() {
+        let email = email2.value === email.value;
+        let pass = pass2.value === pass.value && pass.value.length >= 8;
+
+        email2.className = email ? "ok" : "error";
+        pass2.className = pass ? "ok" : "error";
+
+        return email && pass;
+}
+    </script>
+</body>
+</html>
